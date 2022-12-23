@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="Retro Days"
+run/main_scene="res://data/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+G="*res://data/g.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [rendering]
 

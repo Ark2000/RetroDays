@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://bdfm72egv4f12"]
+[gd_scene load_steps=3 format=3 uid="uid://bdfm72egv4f12"]
+
+[ext_resource type="Script" path="res://data/level_1.gd" id="1_8jeib"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5it4t"]
+font_size = 96
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_8jeib")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL 1"
+label_settings = SubResource("LabelSettings_5it4t")
+horizontal_alignment = 1
+vertical_alignment = 1
