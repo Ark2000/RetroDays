@@ -1,18 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdfm72egv4f12"]
+[gd_scene load_steps=8 format=3 uid="uid://bdfm72egv4f12"]
 
 [ext_resource type="Script" path="res://data/level_1.gd" id="1_8jeib"]
 [ext_resource type="PackedScene" uid="uid://bjg41vr3q400g" path="res://data/player_b.tscn" id="2_qxnp8"]
+[ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="3_mjg78"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_bsphf"]
+[sub_resource type="LabelSettings" id="LabelSettings_1gg5r"]
 font_size = 96
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b55mn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5vvf"]
 size = Vector2(1327.5, 70)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25rl6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfcuv"]
 size = Vector2(112.75, 27.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_on4x6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hnlf"]
 size = Vector2(112.75, 15.5)
 
 [node name="Level1" type="Node2D"]
@@ -28,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "LEVEL 1"
-label_settings = SubResource("LabelSettings_bsphf")
+label_settings = SubResource("LabelSettings_1gg5r")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -37,23 +38,23 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(656.25, 708)
-shape = SubResource("RectangleShape2D_b55mn")
+shape = SubResource("RectangleShape2D_w5vvf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(385, 673)
-shape = SubResource("RectangleShape2D_25rl6")
+shape = SubResource("RectangleShape2D_sfcuv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(503, 641)
-shape = SubResource("RectangleShape2D_on4x6")
+shape = SubResource("RectangleShape2D_2hnlf")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(558, 622)
-shape = SubResource("RectangleShape2D_on4x6")
+shape = SubResource("RectangleShape2D_2hnlf")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(586, 602)
-shape = SubResource("RectangleShape2D_on4x6")
+shape = SubResource("RectangleShape2D_2hnlf")
 
 [node name="PlayerB" parent="." instance=ExtResource("2_qxnp8")]
 position = Vector2(138, 668)
@@ -63,3 +64,15 @@ current = true
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="Coin" parent="." instance=ExtResource("3_mjg78")]
+position = Vector2(328, 636)
+
+[node name="Coin2" parent="." instance=ExtResource("3_mjg78")]
+position = Vector2(261, 650)
+
+[node name="Coin3" parent="." instance=ExtResource("3_mjg78")]
+position = Vector2(226, 620)
+
+[node name="Coin4" parent="." instance=ExtResource("3_mjg78")]
+position = Vector2(177, 643)
