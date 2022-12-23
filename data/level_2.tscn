@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://76rsxlb72cjy"]
+
+[ext_resource type="PackedScene" uid="uid://bjg41vr3q400g" path="res://data/player_b.tscn" id="1_8580t"]
+[ext_resource type="Script" path="res://data/level_2.gd" id="1_a5ehq"]
+[ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="2_87isa"]
+[ext_resource type="PackedScene" uid="uid://dl6he2j734qc6" path="res://data/portal.tscn" id="3_f56us"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kj14y"]
+font_size = 96
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4m3c"]
+size = Vector2(1327.5, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vkq3"]
+size = Vector2(112.75, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jka6i"]
+size = Vector2(112.75, 15.5)
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_a5ehq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL 2"
+label_settings = SubResource("LabelSettings_kj14y")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(645, 720)
+shape = SubResource("RectangleShape2D_d4m3c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(385, 673)
+shape = SubResource("RectangleShape2D_4vkq3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(503, 641)
+shape = SubResource("RectangleShape2D_jka6i")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(558, 622)
+shape = SubResource("RectangleShape2D_jka6i")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(586, 602)
+shape = SubResource("RectangleShape2D_jka6i")
+
+[node name="PlayerB" parent="." instance=ExtResource("1_8580t")]
+position = Vector2(580, 661)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerB"]
+current = true
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="Coin" parent="." instance=ExtResource("2_87isa")]
+position = Vector2(450, 613)
+
+[node name="Coin2" parent="." instance=ExtResource("2_87isa")]
+position = Vector2(499, 591)
+
+[node name="Coin3" parent="." instance=ExtResource("2_87isa")]
+position = Vector2(539, 571)
+
+[node name="Coin4" parent="." instance=ExtResource("2_87isa")]
+position = Vector2(591, 571)
+
+[node name="Portal" parent="." instance=ExtResource("3_f56us")]
+position = Vector2(635, 672)

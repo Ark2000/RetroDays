@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdfm72egv4f12"]
+[gd_scene load_steps=9 format=3 uid="uid://bdfm72egv4f12"]
 
 [ext_resource type="Script" path="res://data/level_1.gd" id="1_8jeib"]
 [ext_resource type="PackedScene" uid="uid://bjg41vr3q400g" path="res://data/player_b.tscn" id="2_qxnp8"]
 [ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="3_mjg78"]
+[ext_resource type="PackedScene" uid="uid://dl6he2j734qc6" path="res://data/portal.tscn" id="4_6ubly"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1gg5r"]
 font_size = 96
@@ -76,3 +77,6 @@ position = Vector2(226, 620)
 
 [node name="Coin4" parent="." instance=ExtResource("3_mjg78")]
 position = Vector2(177, 643)
+
+[node name="Portal" parent="." instance=ExtResource("4_6ubly")]
+position = Vector2(389, 646)

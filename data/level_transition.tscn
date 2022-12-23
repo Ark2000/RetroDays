@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://data/level_transition.gd" id="1_apyp0"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ykiv4"]
+[sub_resource type="LabelSettings" id="LabelSettings_ow314"]
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
@@ -11,6 +11,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_apyp0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -30,6 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "LEVEL 1"
-label_settings = SubResource("LabelSettings_ykiv4")
+label_settings = SubResource("LabelSettings_ow314")
 horizontal_alignment = 1
 vertical_alignment = 1
