@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=3 uid="uid://dy5up6q87t5mc"]
+
+[ext_resource type="Script" path="res://data/cloud_poof_effect.gd" id="1_hxwn2"]
+[ext_resource type="Texture2D" uid="uid://5bejhbbwotff" path="res://assets/effect/Cloud_Poof (16 x 16).png" id="2_7tuot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdfio"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl0p2"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scsir"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7caiw"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moxb1"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ml0"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d4e7"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gonk"]
+atlas = ExtResource("2_7tuot")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmiut"]
+animations = [{
+"frames": [SubResource("AtlasTexture_cdfio"), SubResource("AtlasTexture_jl0p2"), SubResource("AtlasTexture_scsir"), SubResource("AtlasTexture_7caiw"), SubResource("AtlasTexture_moxb1"), SubResource("AtlasTexture_00ml0"), SubResource("AtlasTexture_7d4e7"), SubResource("AtlasTexture_1gonk")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CloudPoofEffect" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_hxwn2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_vmiut")

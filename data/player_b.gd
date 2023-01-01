@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
-const ACCELERATION = 480.0
+const ACCELERATION = 280.0
 const MAX_SPEED = 64.0
 const FRICTION = 10.0
 const AIR_RESISTANCE = 1.0
-const JUMP_FORCE = 260.0
+const JUMP_FORCE = 200
+const GRAVITY = 600.0
 
 @onready var sprite = $Sprite2D
 @onready var animationPlayer = $AnimationPlayer
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var emotion_anim = $EmotionAnimationPlayer
 
 var _prev_is_on_floor := true
 
@@ -26,7 +25,7 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Idle")
 	
-	velocity.y += gravity * delta
+	velocity.y += GRAVITY * delta
 	
 	if is_on_floor() and !_prev_is_on_floor:
 		pass
@@ -41,8 +40,15 @@ func _physics_process(delta):
 	else:
 		animationPlayer.play("Jump")
 		if Input.is_action_just_released("up") and velocity.y < -JUMP_FORCE/2:
-			velocity.y = -JUMP_FORCE/2
+			velocity.y = -JUMP_FORCE * 0.5
 		if x_input == 0.0:
 			velocity.x = lerp(velocity.x, 0.0, AIR_RESISTANCE * delta)
 	
+	velocity.y = min(velocity.y, 200.0)
+	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("1"):
+		emotion_anim.stop()
+		$Emotions.frame = randi() % 9
+		emotion_anim.play("emotion_popup")
