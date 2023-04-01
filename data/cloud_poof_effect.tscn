@@ -37,7 +37,31 @@ region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vmiut"]
 animations = [{
-"frames": [SubResource("AtlasTexture_cdfio"), SubResource("AtlasTexture_jl0p2"), SubResource("AtlasTexture_scsir"), SubResource("AtlasTexture_7caiw"), SubResource("AtlasTexture_moxb1"), SubResource("AtlasTexture_00ml0"), SubResource("AtlasTexture_7d4e7"), SubResource("AtlasTexture_1gonk")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdfio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl0p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scsir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7caiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moxb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00ml0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d4e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gonk")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -48,4 +72,4 @@ texture_filter = 1
 script = ExtResource("1_hxwn2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_vmiut")
+sprite_frames = SubResource("SpriteFrames_vmiut")

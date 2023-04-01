@@ -17,7 +17,19 @@ region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vo3f"]
 animations = [{
-"frames": [SubResource("AtlasTexture_tex8b"), SubResource("AtlasTexture_rfict"), SubResource("AtlasTexture_6sud8"), SubResource("AtlasTexture_rfict")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tex8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfict")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sud8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfict")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -34,8 +46,7 @@ position = Vector2(112, 136)
 script = ExtResource("1_t4sot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_8vo3f")
-playing = true
+sprite_frames = SubResource("SpriteFrames_8vo3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w3svy")
