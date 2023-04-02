@@ -1,22 +1,22 @@
 extends CharacterBody2D
 
-const ACCELERATION = 280.0
-const MAX_SPEED = 64.0
-const FRICTION = 10.0
-const AIR_RESISTANCE = 1.0
-const JUMP_FORCE = 200
-const GRAVITY = 600.0
+func _ready() -> void:
+	Console.register_env("c", self)
+
+@export_range(100.0, 500.0) var ACCELERATION := 280.0
+@export_range(10.0, 100.0) var MAX_SPEED := 64.0
+@export_range(1.0, 20.0) var FRICTION = 10.0
+@export_range(0.0, 5.0) var AIR_RESISTANCE = 1.0
+@export_range(0.0, 500.0) var JUMP_FORCE = 200
+@export_range(100.0, 1000.0) var GRAVITY = 600.0
 
 @onready var sprite = $Sprite2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var emotion_anim = $EmotionAnimationPlayer
 
-var _prev_is_on_floor := true
-
-#_physics_process may cause jitter and stutter
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
-	
+
 	if x_input != 0.0:
 		animationPlayer.play("Run")
 		velocity.x += x_input * ACCELERATION * delta
@@ -24,13 +24,7 @@ func _physics_process(delta):
 		sprite.flip_h = x_input < 0
 	else:
 		animationPlayer.play("Idle")
-	
-	velocity.y += GRAVITY * delta
-	
-	if is_on_floor() and !_prev_is_on_floor:
-		pass
-	_prev_is_on_floor = is_on_floor()
-		
+
 	if is_on_floor():
 		if x_input == 0.0:
 			velocity.x = lerp(velocity.x, 0.0, FRICTION * delta)
@@ -43,6 +37,7 @@ func _physics_process(delta):
 			velocity.y = -JUMP_FORCE * 0.5
 		if x_input == 0.0:
 			velocity.x = lerp(velocity.x, 0.0, AIR_RESISTANCE * delta)
+		velocity.y += GRAVITY * delta
 	
 	velocity.y = min(velocity.y, 200.0)
 	

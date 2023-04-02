@@ -62,14 +62,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1gonk")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
 
-[node name="CloudPoofEffect" type="Node2D"]
+[node name="CloudPoofEffect" type="Node2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
 script = ExtResource("1_hxwn2")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vmiut")
+autoplay = "default"

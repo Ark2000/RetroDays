@@ -1,12 +1,10 @@
 extends Node2D
 
-@onready var sprite := $AnimatedSprite2D
+@export var sprite:AnimatedSprite2D
 
 func _ready():
 	sprite.animation_finished.connect(
 		func():
+			print("smoke queue free")
 			queue_free()
 	)
-	
-	sprite.frame = 0
-	sprite.play("default")

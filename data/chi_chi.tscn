@@ -32,7 +32,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3svy"]
@@ -42,11 +42,11 @@ size = Vector2(16, 16)
 size = Vector2(16, 2)
 
 [node name="ChiChi" type="CharacterBody2D"]
-position = Vector2(112, 136)
 script = ExtResource("1_t4sot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8vo3f")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w3svy")
@@ -54,7 +54,6 @@ shape = SubResource("RectangleShape2D_w3svy")
 [node name="Node" type="Node" parent="."]
 
 [node name="Path" type="Line2D" parent="Node"]
-position = Vector2(112, 136)
 points = PackedVector2Array(0, 0, 0, -56)
 width = 2.0
 default_color = Color(0, 0, 1, 0.639216)

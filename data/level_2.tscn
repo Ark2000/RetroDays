@@ -61,7 +61,6 @@ shape = SubResource("RectangleShape2D_jka6i")
 position = Vector2(580, 661)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerB"]
-current = true
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
