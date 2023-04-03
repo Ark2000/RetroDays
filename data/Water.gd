@@ -6,4 +6,5 @@ func _ready():
 	body_entered.connect(
 		func(player:CharacterBody2D):
 			player.position = respawn.position
+			player.velocity = Vector2.ZERO
 	)

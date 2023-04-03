@@ -1,22 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl2ltyavxxsxr"]
+[gd_scene load_steps=7 format=3 uid="uid://bl2ltyavxxsxr"]
 
-[ext_resource type="Script" path="res://data/moving_platform.gd" id="1_6qm4q"]
 [ext_resource type="Texture2D" uid="uid://bbc0moyceok4x" path="res://assets/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="2_hl6n5"]
 
+[sub_resource type="Curve2D" id="Curve2D_b45r6"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_d4ixd"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0win1"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvusw"]
+_data = {
+"RESET": SubResource("Animation_d4ixd"),
+"default": SubResource("Animation_0win1")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asy7w"]
-size = Vector2(32, 16)
+size = Vector2(32, 10)
 
-[node name="MovingPlatform" type="AnimatableBody2D" node_paths=PackedStringArray("path")]
-script = ExtResource("1_6qm4q")
-path = NodePath("")
+[node name="MovingPlatform" type="Path2D"]
+curve = SubResource("Curve2D_b45r6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_asy7w")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_hvusw")
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = 1.5708
+rotates = false
+
+[node name="AnimatedBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
+rotation = -1.5708
+sync_to_physics = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatedBody2D"]
 texture_filter = 1
-position = Vector2(0, 8)
+position = Vector2(0, 5)
 texture = ExtResource("2_hl6n5")
 region_enabled = true
-region_rect = Rect2(96, 64, 32, 16)
+region_rect = Rect2(96, 64, 32, 10.2687)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatedBody2D"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_asy7w")
