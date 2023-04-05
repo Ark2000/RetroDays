@@ -21,7 +21,8 @@ G="*res://data/g.gd"
 
 [display]
 
-window/size/viewport_height=832
+window/size/viewport_width=1280
+window/size/viewport_height=960
 
 [editor_plugins]
 

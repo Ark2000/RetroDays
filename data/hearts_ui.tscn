@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://df5w4tr247oym"]
+
+[ext_resource type="Script" path="res://data/hearts_ui.gd" id="1_jmapl"]
+[ext_resource type="Texture2D" uid="uid://qf5ukhsykwmy" path="res://assets/items/Mini UI/Health_Indicator_Black_Outline (8 x 8).png" id="1_lh15i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6ca7"]
+atlas = ExtResource("1_lh15i")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya7ew"]
+atlas = ExtResource("1_lh15i")
+region = Rect2(0, 0, 8, 8)
+
+[node name="HeartsUI" type="HBoxContainer"]
+texture_filter = 1
+offset_right = 81.0
+offset_bottom = 32.0
+script = ExtResource("1_jmapl")
+
+[node name="EmptyHeart" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("AtlasTexture_b6ca7")
+
+[node name="FullHeart" type="TextureRect" parent="EmptyHeart"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ya7ew")

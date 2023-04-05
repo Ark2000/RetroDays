@@ -1,7 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://bdfm72egv4f12"]
+[gd_scene load_steps=34 format=3 uid="uid://bdfm72egv4f12"]
 
 [ext_resource type="Script" path="res://data/level_1.gd" id="1_8jeib"]
-[ext_resource type="PackedScene" uid="uid://bjg41vr3q400g" path="res://data/player_b.tscn" id="2_qxnp8"]
 [ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="3_mjg78"]
 [ext_resource type="PackedScene" uid="uid://dl6he2j734qc6" path="res://data/portal.tscn" id="4_6ubly"]
 [ext_resource type="Texture2D" uid="uid://dwx6f75sgt2ea" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="5_iru3d"]
@@ -19,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cn2bsabus8a86" path="res://data/treasure_box.tscn" id="12_aww70"]
 [ext_resource type="PackedScene" uid="uid://d0fqatpb4tjhf" path="res://data/volatile_platform.tscn" id="13_rps4g"]
 [ext_resource type="PackedScene" uid="uid://du6sfps3y6xms" path="res://data/chi_chi.tscn" id="16_rsx1e"]
+[ext_resource type="PackedScene" uid="uid://dqp8uwqlabpeo" path="res://data/player_a.tscn" id="19_0p7ls"]
+[ext_resource type="PackedScene" uid="uid://df5w4tr247oym" path="res://data/hearts_ui.tscn" id="19_jsf1k"]
+[ext_resource type="PackedScene" uid="uid://dnf6ior781v86" path="res://data/hurt_area.tscn" id="20_euod2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_qxjrn"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3)
@@ -635,37 +637,39 @@ pattern_1 = SubResource("TileMapPattern_265gj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v0kb"]
 size = Vector2(64, 113)
 
-[sub_resource type="Curve2D" id="Curve2D_rxxpc"]
+[sub_resource type="Curve2D" id="Curve2D_hcmqd"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.9998, -18.9999, 0, 0, 0, 0, 2.00024, -45.9999, 0, 0, 0, 0, -14.9998, -59.9999, 0, 0, 0, 0, -38.9998, -59.9999, 0, 0, 0, 0, -51.9998, -37.9999)
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_lk7py"]
+[sub_resource type="Curve2D" id="Curve2D_lvkxv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ox2h1"]
+[sub_resource type="Curve2D" id="Curve2D_n8yxg"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_nul3p"]
+[sub_resource type="Curve2D" id="Curve2D_7fpu3"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 0)
 }
 point_count = 2
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("hearts_ui", "player_a")]
 texture_filter = 1
 script = ExtResource("1_8jeib")
+hearts_ui = NodePath("GUI/HeartsUI")
+player_a = NodePath("PlayerA")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_35j1o")
@@ -781,25 +785,25 @@ gizmo_extents = 15.5
 
 [node name="MovingPlatform" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2245, 658)
-curve = SubResource("Curve2D_rxxpc")
+curve = SubResource("Curve2D_hcmqd")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform" index="0"]
 speed_scale = 0.3
 
 [node name="MovingPlatform2" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2291, 641)
-curve = SubResource("Curve2D_lk7py")
+curve = SubResource("Curve2D_lvkxv")
 
 [node name="PathFollow2D" parent="Entities/MovingPlatform2" index="1"]
 position = Vector2(0, -32)
 
 [node name="MovingPlatform3" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2343, 623)
-curve = SubResource("Curve2D_ox2h1")
+curve = SubResource("Curve2D_n8yxg")
 
 [node name="MovingPlatform4" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2381, 661)
-curve = SubResource("Curve2D_nul3p")
+curve = SubResource("Curve2D_7fpu3")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform4" index="0"]
 speed_scale = 0.1
@@ -862,19 +866,6 @@ position = Vector2(719, 672)
 position = Vector2(719, 672)
 points = PackedVector2Array(0, 0, 0, -32)
 
-[node name="PlayerB" parent="." instance=ExtResource("2_qxnp8")]
-position = Vector2(2804, 655)
-
-[node name="Camera2D" type="Camera2D" parent="PlayerB"]
-offset = Vector2(0, -40)
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_bottom = 900
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
-editor_draw_limits = true
-
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -922,6 +913,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_6had5")
 metadata/_edit_lock_ = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="HeartsUI" parent="GUI" instance=ExtResource("19_jsf1k")]
+
+[node name="PlayerA" parent="." instance=ExtResource("19_0p7ls")]
+position = Vector2(3023, 658)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerA"]
+zoom = Vector2(4, 4)
+
+[node name="HurtArea" parent="." instance=ExtResource("20_euod2")]
+position = Vector2(3075, 686)
+
+[node name="HurtArea2" parent="." instance=ExtResource("20_euod2")]
+position = Vector2(2993, 684)
 
 [editable path="Entities/Sign2"]
 [editable path="Entities/MovingPlatform"]

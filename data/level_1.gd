@@ -1,12 +1,19 @@
 extends Node2D
 
-#func _ready():
-#	$Portal.portal_entered.connect(
-#		func():
-#			G.intent["level_transition_next_scene"] = G.level_2
-#			G.intent["level_transition_text"] = "LEVEL 2"
-#			get_tree().change_scene_to_packed(G.level_transition)
-#	)
+@export var hearts_ui:HeartsUI
+@export var player_a:PlayerA
+
+var max_hp := 3
+var hp := 3
+
+func _ready() -> void:
+	hearts_ui.set_max_hp(max_hp)
+	hearts_ui.set_hp(hp)
+	player_a.is_hurt.connect(
+		func():
+			hp -= 1
+			hearts_ui.set_hp(hp)
+	)
 
 func _input(e:InputEvent):
 	if e is InputEventKey and e.keycode == KEY_P and e.pressed:

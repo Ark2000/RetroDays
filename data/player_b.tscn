@@ -169,3 +169,5 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_x4xb4")
 }
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
