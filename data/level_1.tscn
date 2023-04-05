@@ -637,28 +637,28 @@ pattern_1 = SubResource("TileMapPattern_265gj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v0kb"]
 size = Vector2(64, 113)
 
-[sub_resource type="Curve2D" id="Curve2D_hcmqd"]
+[sub_resource type="Curve2D" id="Curve2D_alb21"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.9998, -18.9999, 0, 0, 0, 0, 2.00024, -45.9999, 0, 0, 0, 0, -14.9998, -59.9999, 0, 0, 0, 0, -38.9998, -59.9999, 0, 0, 0, 0, -51.9998, -37.9999)
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_lvkxv"]
+[sub_resource type="Curve2D" id="Curve2D_7gt8o"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_n8yxg"]
+[sub_resource type="Curve2D" id="Curve2D_up0r8"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_7fpu3"]
+[sub_resource type="Curve2D" id="Curve2D_qsgi0"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 0)
@@ -785,25 +785,25 @@ gizmo_extents = 15.5
 
 [node name="MovingPlatform" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2245, 658)
-curve = SubResource("Curve2D_hcmqd")
+curve = SubResource("Curve2D_alb21")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform" index="0"]
 speed_scale = 0.3
 
 [node name="MovingPlatform2" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2291, 641)
-curve = SubResource("Curve2D_lvkxv")
+curve = SubResource("Curve2D_7gt8o")
 
 [node name="PathFollow2D" parent="Entities/MovingPlatform2" index="1"]
 position = Vector2(0, -32)
 
 [node name="MovingPlatform3" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2343, 623)
-curve = SubResource("Curve2D_n8yxg")
+curve = SubResource("Curve2D_up0r8")
 
 [node name="MovingPlatform4" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2381, 661)
-curve = SubResource("Curve2D_7fpu3")
+curve = SubResource("Curve2D_qsgi0")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform4" index="0"]
 speed_scale = 0.1

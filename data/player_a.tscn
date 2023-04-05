@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dqp8uwqlabpeo"]
+[gd_scene load_steps=46 format=3 uid="uid://dqp8uwqlabpeo"]
 
 [ext_resource type="Texture2D" uid="uid://da2tpqq431f6r" path="res://assets/sprites/player_a/Casting_Spell_(32 x 32).png" id="1_dvtnr"]
 [ext_resource type="Script" path="res://data/player_a.gd" id="1_f0v1l"]
@@ -95,6 +95,10 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("8_cyym6")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_111ja"]
+atlas = ExtResource("8_cyym6")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k5twd"]
 atlas = ExtResource("11_46soq")
 region = Rect2(0, 0, 32, 32)
@@ -134,9 +138,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ol7ei")
 }],
-"loop": true,
+"loop": false,
 "name": &"casting_spell",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,9 +155,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s8j80")
 }],
-"loop": true,
+"loop": false,
 "name": &"casting_spell_aerial",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,7 +172,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1kraj")
 }],
-"loop": false,
+"loop": true,
 "name": &"casting_spell_repeating",
 "speed": 10.0
 }, {
@@ -189,7 +193,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"falling",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -214,15 +218,18 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e4uvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_111ja")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -256,6 +263,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_r6f40"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_7jykf"]
 resource_name = "invinsible"
 length = 0.1
@@ -272,21 +294,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.25098)]
-}
-
-[sub_resource type="Animation" id="Animation_r6f40"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r5iyj"]
@@ -324,9 +331,7 @@ shape = SubResource("RectangleShape2D_tf4p8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_rqljy")
-animation = &"hurt"
-frame = 1
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

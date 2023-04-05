@@ -1,8 +1,11 @@
 class_name PlayerA
 extends CharacterBody2D
 
+const spells = preload("res://data/magical_orbs_spell.tscn")
+
 signal just_landed(fall_height)
 signal is_hurt
+signal just_attack
 
 @export_range(100.0, 500.0) var ACCELERATION := 280.0
 @export_range(10.0, 100.0) var MAX_SPEED := 64.0
@@ -19,9 +22,12 @@ var x_input:float
 var jump_pressed:bool
 var jump_released:bool
 var duck_pressed:bool
+var attack_just_pressed:bool
 var prev_is_on_floor:bool
 var ground_recovery_counter:float
 var play_hurt_animation:bool
+var play_attack_animation:bool
+var current_attack_animation:String
 var fall_start:float
 var prev_velocity:Vector2
 
@@ -34,6 +40,21 @@ func _ready() -> void:
 				ground_recovery_counter = 0.3
 			play_hurt_animation = false
 	)
+	sprite.animation_finished.connect(
+		func():
+			if sprite.animation == "casting_spell":
+				play_attack_animation = false
+			if sprite.animation == "casting_spell_aerial":
+				play_attack_animation = false
+	)
+	just_attack.connect(
+		func():
+			play_attack_animation = true
+			if is_on_floor():
+				current_attack_animation = "casting_spell"
+			else:
+				current_attack_animation = "casting_spell_aerial"
+	)
 
 func _physics_process(delta):
 	prev_velocity = velocity
@@ -42,8 +63,9 @@ func _physics_process(delta):
 	duck_pressed = Input.is_action_pressed("down")
 	jump_pressed = Input.is_action_just_pressed("up")
 	jump_released = Input.is_action_just_released("up")
+	attack_just_pressed = Input.is_action_just_pressed("attack")
 
-	if duck_pressed:
+	if duck_pressed or play_attack_animation:
 		x_input = 0.0
 
 	if play_hurt_animation:
@@ -51,6 +73,15 @@ func _physics_process(delta):
 		jump_pressed = false
 		jump_released = false
 		duck_pressed = false
+	
+	if attack_just_pressed and !play_attack_animation and !play_hurt_animation:
+		just_attack.emit()
+		#create attack spell
+		var attack_spell:MagicalOrbsSpell = spells.instantiate()
+		attack_spell.position = position + Vector2(0, -8)
+		attack_spell.life_time = 0.8
+		attack_spell.max_velocity = Vector2(200.0 * get_face_direction(), 0)
+		get_tree().root.add_child(attack_spell)
 
 	if x_input != 0.0:
 		velocity.x += x_input * ACCELERATION * delta
@@ -117,6 +148,10 @@ func update_animation():
 			anim = "ducking"
 		if ground_recovery_counter > 0.0:
 			anim = "ground_recovery"
+	
+	if play_attack_animation:
+		anim = current_attack_animation
+	
 	if play_hurt_animation:
 		anim = "hurt"
 
