@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckqo56l0giqns"]
+
+[ext_resource type="Script" path="res://components/free_cam/free_cam.gd" id="1_nredx"]
+
+[node name="FreeCam2D" type="Camera2D" node_paths=PackedStringArray("label")]
+script = ExtResource("1_nredx")
+label = NodePath("CanvasLayer/PanelContainer/Label")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 1.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2

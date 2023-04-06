@@ -70,6 +70,6 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -9)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_xcoid")
 debug_color = Color(0.784314, 0.352941, 0.65098, 0.419608)

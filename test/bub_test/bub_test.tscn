@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://deymleq5dqogb"]
+
+[ext_resource type="PackedScene" uid="uid://dkjjnnfxuxpwt" path="res://data/bub/bub.tscn" id="1_fj1iv"]
+[ext_resource type="PackedScene" uid="uid://dqp8uwqlabpeo" path="res://data/player_a.tscn" id="1_nklyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thxnn"]
+size = Vector2(114, 68)
+
+[node name="BubTest" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(30, 34)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(140, 23)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-80, 17)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(159, 8)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(266, 31)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(359, 2)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="PlayerA" parent="." instance=ExtResource("1_nklyi")]
+position = Vector2(-32, -84)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerA"]
+zoom = Vector2(4, 4)
+
+[node name="Bub" parent="." instance=ExtResource("1_fj1iv")]
+position = Vector2(117, -34)
+
+[node name="Bub2" parent="." instance=ExtResource("1_fj1iv")]
+position = Vector2(8, -10)
+
+[node name="Bub3" parent="." instance=ExtResource("1_fj1iv")]
+position = Vector2(174, -39)
+
+[node name="Bub4" parent="." instance=ExtResource("1_fj1iv")]
+position = Vector2(259, -19)
+x_input = 1

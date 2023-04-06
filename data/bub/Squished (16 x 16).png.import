@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbbqsjdmgayff"
-path="res://.godot/imported/Running (16 x 16).png-317c33d781d720f562d10f067aae94f6.ctex"
+uid="uid://brrdqd3efi57w"
+path="res://.godot/imported/Squished (16 x 16).png-5234f0a43516c70d513b3e5171d4eb35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Bub/Running (16 x 16).png"
-dest_files=["res://.godot/imported/Running (16 x 16).png-317c33d781d720f562d10f067aae94f6.ctex"]
+source_file="res://data/bub/Squished (16 x 16).png"
+dest_files=["res://.godot/imported/Squished (16 x 16).png-5234f0a43516c70d513b3e5171d4eb35.ctex"]
 
 [params]
 
