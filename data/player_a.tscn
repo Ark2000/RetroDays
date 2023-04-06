@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://dqp8uwqlabpeo"]
+[gd_scene load_steps=48 format=3 uid="uid://dqp8uwqlabpeo"]
 
 [ext_resource type="Texture2D" uid="uid://da2tpqq431f6r" path="res://assets/sprites/player_a/Casting_Spell_(32 x 32).png" id="1_dvtnr"]
 [ext_resource type="Script" path="res://data/player_a.gd" id="1_f0v1l"]
+[ext_resource type="PackedScene" path="res://data/magical_orbs_spell/magical_orbs_spell.tscn" id="2_bb44k"]
 [ext_resource type="Texture2D" uid="uid://b0n7qqg6dtqt5" path="res://assets/sprites/player_a/Casting_Spell_Aerial_(32 x 32).png" id="2_sppm5"]
 [ext_resource type="Texture2D" uid="uid://d4bory6l0itv0" path="res://assets/sprites/player_a/Casting_Spell_Repeating_(32 x 32).png" id="3_3sm76"]
 [ext_resource type="Texture2D" uid="uid://cqtlxdt1bf2yl" path="res://assets/sprites/player_a/Ducking_(32 x 32).png" id="4_harve"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cb4xut5e51gq3" path="res://assets/sprites/player_a/Idle_(32 x 32).png" id="8_cyym6"]
 [ext_resource type="Texture2D" uid="uid://w31f63nsustq" path="res://assets/sprites/player_a/Jumping_(32 x 32).png" id="9_08kiv"]
 [ext_resource type="Texture2D" uid="uid://cggjmv7tolhin" path="res://assets/sprites/player_a/Running_(32 x 32).png" id="11_46soq"]
+[ext_resource type="PackedScene" uid="uid://b5aqfonbcfpci" path="res://data/emo_bubble/emo_bubble.tscn" id="12_ccles"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4p8"]
 size = Vector2(12, 15)
@@ -319,10 +321,13 @@ func hurt():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2aur"]
 size = Vector2(10, 14)
 
-[node name="PlayerA" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim")]
+[node name="PlayerA" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "anim", "emo")]
+collision_layer = 3
 script = ExtResource("1_f0v1l")
+spells = ExtResource("2_bb44k")
 sprite = NodePath("AnimatedSprite2D")
 anim = NodePath("AnimationPlayer")
+emo = NodePath("EmoBubble")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7.5)
@@ -332,6 +337,9 @@ shape = SubResource("RectangleShape2D_tf4p8")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_rqljy")
 animation = &"idle"
+
+[node name="EmoBubble" parent="." instance=ExtResource("12_ccles")]
+position = Vector2(0, -22)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

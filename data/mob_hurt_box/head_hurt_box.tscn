@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://data/mob_hurt_box/head_hurt_box.gd" id="1_jyysv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28rit"]
+size = Vector2(10, 1)
+
+[node name="HeadHurtBox" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jyysv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_28rit")
+debug_color = Color(0.827451, 0.345098, 0.517647, 0.419608)

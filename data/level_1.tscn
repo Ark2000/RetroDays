@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdfm72egv4f12"]
+[gd_scene load_steps=34 format=3]
 
 [ext_resource type="Script" path="res://data/level_1.gd" id="1_8jeib"]
 [ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="3_mjg78"]
@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://3nhxkkk7v2ar" path="res://assets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="6_kphws"]
 [ext_resource type="Texture2D" uid="uid://dtol7fdfhtxbc" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="7_1v2gm"]
 [ext_resource type="Texture2D" uid="uid://b4g4v081rlncu" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_6had5"]
-[ext_resource type="PackedScene" uid="uid://bdqcs0o1vqbk2" path="res://data/sign.tscn" id="8_ri8pw"]
+[ext_resource type="PackedScene" path="res://data/signboard/sign.tscn" id="8_ri8pw"]
 [ext_resource type="Script" path="res://data/Water.gd" id="9_go1lk"]
 [ext_resource type="PackedScene" uid="uid://bl2ltyavxxsxr" path="res://data/moving_platform.tscn" id="10_x8ovr"]
 [ext_resource type="PackedScene" uid="uid://cn2bsabus8a86" path="res://data/treasure_box.tscn" id="12_aww70"]
+[ext_resource type="PackedScene" uid="uid://c3r31fypfvb48" path="res://data/mob_bird/chi_chi.tscn" id="13_gic48"]
 [ext_resource type="PackedScene" uid="uid://d0fqatpb4tjhf" path="res://data/volatile_platform.tscn" id="13_rps4g"]
-[ext_resource type="PackedScene" uid="uid://du6sfps3y6xms" path="res://data/chi_chi.tscn" id="16_rsx1e"]
 [ext_resource type="PackedScene" uid="uid://dqp8uwqlabpeo" path="res://data/player_a.tscn" id="19_0p7ls"]
 [ext_resource type="PackedScene" uid="uid://df5w4tr247oym" path="res://data/hearts_ui.tscn" id="19_jsf1k"]
 [ext_resource type="PackedScene" uid="uid://dnf6ior781v86" path="res://data/hurt_area.tscn" id="20_euod2"]
@@ -637,28 +637,28 @@ pattern_1 = SubResource("TileMapPattern_265gj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v0kb"]
 size = Vector2(64, 113)
 
-[sub_resource type="Curve2D" id="Curve2D_alb21"]
+[sub_resource type="Curve2D" id="Curve2D_okqnv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.9998, -18.9999, 0, 0, 0, 0, 2.00024, -45.9999, 0, 0, 0, 0, -14.9998, -59.9999, 0, 0, 0, 0, -38.9998, -59.9999, 0, 0, 0, 0, -51.9998, -37.9999)
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_7gt8o"]
+[sub_resource type="Curve2D" id="Curve2D_4e50r"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_up0r8"]
+[sub_resource type="Curve2D" id="Curve2D_400ft"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_qsgi0"]
+[sub_resource type="Curve2D" id="Curve2D_g4pxv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 0)
@@ -785,25 +785,25 @@ gizmo_extents = 15.5
 
 [node name="MovingPlatform" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2245, 658)
-curve = SubResource("Curve2D_alb21")
+curve = SubResource("Curve2D_okqnv")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform" index="0"]
 speed_scale = 0.3
 
 [node name="MovingPlatform2" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2291, 641)
-curve = SubResource("Curve2D_7gt8o")
+curve = SubResource("Curve2D_4e50r")
 
 [node name="PathFollow2D" parent="Entities/MovingPlatform2" index="1"]
 position = Vector2(0, -32)
 
 [node name="MovingPlatform3" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2343, 623)
-curve = SubResource("Curve2D_up0r8")
+curve = SubResource("Curve2D_400ft")
 
 [node name="MovingPlatform4" parent="Entities" instance=ExtResource("10_x8ovr")]
 position = Vector2(2381, 661)
-curve = SubResource("Curve2D_qsgi0")
+curve = SubResource("Curve2D_g4pxv")
 
 [node name="AnimationPlayer" parent="Entities/MovingPlatform4" index="0"]
 speed_scale = 0.1
@@ -825,41 +825,41 @@ position = Vector2(2884, 688)
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="ChiChi" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(544, 672)
 
 [node name="Path" parent="Mobs/ChiChi/Node" index="0"]
 position = Vector2(544, 672)
 
-[node name="ChiChi2" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi2" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(368, 576)
 
 [node name="Path" parent="Mobs/ChiChi2/Node" index="0"]
 position = Vector2(272, 624)
 points = PackedVector2Array(-48, -16, 0, -48, 64, -48, 112, -16, 32, 0)
 
-[node name="ChiChi3" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi3" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(608, 672)
 
 [node name="Path" parent="Mobs/ChiChi3/Node" index="0"]
 position = Vector2(608, 672)
 points = PackedVector2Array(0, 0, 0, -48, 48, -48)
 
-[node name="ChiChi4" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi4" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(672, 672)
 
 [node name="Path" parent="Mobs/ChiChi4/Node" index="0"]
 position = Vector2(672, 672)
 points = PackedVector2Array(0, 0, 0, -32)
 
-[node name="ChiChi5" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi5" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(695, 672)
 
 [node name="Path" parent="Mobs/ChiChi5/Node" index="0"]
 position = Vector2(695, 672)
 points = PackedVector2Array(0, 0, 0, -32)
 
-[node name="ChiChi6" parent="Mobs" instance=ExtResource("16_rsx1e")]
+[node name="ChiChi6" parent="Mobs" instance=ExtResource("13_gic48")]
 position = Vector2(719, 672)
 
 [node name="Path" parent="Mobs/ChiChi6/Node" index="0"]
@@ -919,7 +919,7 @@ metadata/_edit_lock_ = true
 [node name="HeartsUI" parent="GUI" instance=ExtResource("19_jsf1k")]
 
 [node name="PlayerA" parent="." instance=ExtResource("19_0p7ls")]
-position = Vector2(3023, 658)
+position = Vector2(470, 675)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerA"]
 zoom = Vector2(4, 4)
@@ -936,8 +936,20 @@ position = Vector2(2993, 684)
 [editable path="Entities/MovingPlatform3"]
 [editable path="Entities/MovingPlatform4"]
 [editable path="Mobs/ChiChi"]
+[editable path="Mobs/ChiChi/HeadHurtBox"]
+[editable path="Mobs/ChiChi/SideHitBox"]
 [editable path="Mobs/ChiChi2"]
+[editable path="Mobs/ChiChi2/HeadHurtBox"]
+[editable path="Mobs/ChiChi2/SideHitBox"]
 [editable path="Mobs/ChiChi3"]
+[editable path="Mobs/ChiChi3/HeadHurtBox"]
+[editable path="Mobs/ChiChi3/SideHitBox"]
 [editable path="Mobs/ChiChi4"]
+[editable path="Mobs/ChiChi4/HeadHurtBox"]
+[editable path="Mobs/ChiChi4/SideHitBox"]
 [editable path="Mobs/ChiChi5"]
+[editable path="Mobs/ChiChi5/HeadHurtBox"]
+[editable path="Mobs/ChiChi5/SideHitBox"]
 [editable path="Mobs/ChiChi6"]
+[editable path="Mobs/ChiChi6/HeadHurtBox"]
+[editable path="Mobs/ChiChi6/SideHitBox"]

@@ -1,7 +1,7 @@
 class_name PlayerA
 extends CharacterBody2D
 
-const spells = preload("res://data/magical_orbs_spell.tscn")
+@export var spells:PackedScene
 
 signal just_landed(fall_height)
 signal is_hurt
@@ -16,7 +16,7 @@ signal just_attack
 
 @export var sprite:AnimatedSprite2D
 @export var anim:AnimationPlayer
-@export var area:Area2D
+@export var emo:EmoBubble
 
 var x_input:float
 var jump_pressed:bool
@@ -123,6 +123,9 @@ func hurt():
 			anim.play("RESET")
 	)
 	is_hurt.emit()
+	
+	emo.play_emo(7)
+	
 	print("is_hurt")
 
 func get_fall_height():

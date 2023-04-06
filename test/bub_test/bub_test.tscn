@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://deymleq5dqogb"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://dkjjnnfxuxpwt" path="res://data/bub/bub.tscn" id="1_fj1iv"]
+[ext_resource type="PackedScene" path="res://data/mob_bub/bub.tscn" id="1_fj1iv"]
 [ext_resource type="PackedScene" uid="uid://dqp8uwqlabpeo" path="res://data/player_a.tscn" id="1_nklyi"]
+[ext_resource type="PackedScene" path="res://data/mob_spikey_bub/spikey_bub.tscn" id="3_83upk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thxnn"]
 size = Vector2(114, 68)
@@ -34,8 +35,24 @@ shape = SubResource("RectangleShape2D_thxnn")
 position = Vector2(359, 2)
 shape = SubResource("RectangleShape2D_thxnn")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-180, 30)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-282, 14)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-387, 32)
+shape = SubResource("RectangleShape2D_thxnn")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-490, 14)
+shape = SubResource("RectangleShape2D_thxnn")
+
 [node name="PlayerA" parent="." instance=ExtResource("1_nklyi")]
-position = Vector2(-32, -84)
+position = Vector2(-316, -39)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerA"]
 zoom = Vector2(4, 4)
@@ -46,9 +63,15 @@ position = Vector2(117, -34)
 [node name="Bub2" parent="." instance=ExtResource("1_fj1iv")]
 position = Vector2(8, -10)
 
-[node name="Bub3" parent="." instance=ExtResource("1_fj1iv")]
-position = Vector2(174, -39)
-
 [node name="Bub4" parent="." instance=ExtResource("1_fj1iv")]
 position = Vector2(259, -19)
 x_input = 1
+
+[node name="SpikeyBub" parent="." instance=ExtResource("3_83upk")]
+position = Vector2(-200, -11)
+
+[node name="SpikeyBub2" parent="." instance=ExtResource("3_83upk")]
+position = Vector2(-388, -13)
+
+[node name="SpikeyBub3" parent="." instance=ExtResource("3_83upk")]
+position = Vector2(-365, -12)

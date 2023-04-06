@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3r31fypfvb48"]
+
+[ext_resource type="Texture2D" uid="uid://bq1hx0sjwfl8f" path="res://data/mob_bird/Flapping_Wings (16 x 16).png" id="1_gq7ot"]
+[ext_resource type="Script" path="res://data/mob_bird/chi_chi.gd" id="1_t4sot"]
+[ext_resource type="PackedScene" path="res://data/mob_hurt_box/head_hurt_box.tscn" id="3_rbjcw"]
+[ext_resource type="PackedScene" path="res://data/mob_hit_box/side_hit_box.tscn" id="4_4oube"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tex8b"]
+atlas = ExtResource("1_gq7ot")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfict"]
+atlas = ExtResource("1_gq7ot")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sud8"]
+atlas = ExtResource("1_gq7ot")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vo3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tex8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfict")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sud8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfict")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3svy"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8px"]
+size = Vector2(14, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cesfx"]
+size = Vector2(18, 15)
+
+[node name="ChiChi" type="CharacterBody2D"]
+script = ExtResource("1_t4sot")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8vo3f")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w3svy")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Path" type="Line2D" parent="Node"]
+points = PackedVector2Array(0, 0, 0, -56)
+width = 2.0
+default_color = Color(0, 0, 1, 0.639216)
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 0, -32)
+width = 1.0
+default_color = Color(1, 0, 0, 0.203922)
+
+[node name="HeadHurtBox" parent="." instance=ExtResource("3_rbjcw")]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" parent="HeadHurtBox" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_yb8px")
+
+[node name="SideHitBox" parent="." instance=ExtResource("4_4oube")]
+
+[node name="CollisionShape2D" parent="SideHitBox" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_cesfx")
+
+[editable path="HeadHurtBox"]
+[editable path="SideHitBox"]

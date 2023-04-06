@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjg41vr3q400g"]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://data/player_b.gd" id="1_j1w8d"]
 [ext_resource type="Texture2D" uid="uid://yeye5gl1fxit" path="res://assets/sprites/player_b/Player.png" id="2_djdno"]
-[ext_resource type="Texture2D" uid="uid://nwxv1massvoc" path="res://assets/ui/Speech_Emotes (16 x 16).png" id="3_cc05h"]
+[ext_resource type="Texture2D" uid="uid://nwxv1massvoc" path="res://data/emo_bubble/Speech_Emotes (16 x 16).png" id="3_cc05h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvhcl"]
 size = Vector2(6, 14)
