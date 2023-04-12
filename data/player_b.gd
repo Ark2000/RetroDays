@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-func _ready() -> void:
-	Console.register_env("c", self)
-
 @export_range(100.0, 500.0) var ACCELERATION := 280.0
 @export_range(10.0, 100.0) var MAX_SPEED := 64.0
 @export_range(1.0, 20.0) var FRICTION = 10.0

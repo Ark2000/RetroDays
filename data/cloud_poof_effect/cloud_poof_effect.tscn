@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy5up6q87t5mc"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" path="res://data/cloud_poof_effect.gd" id="1_hxwn2"]
+[ext_resource type="Script" path="res://data/cloud_poof_effect/cloud_poof_effect.gd" id="1_hxwn2"]
 [ext_resource type="Texture2D" uid="uid://5bejhbbwotff" path="res://assets/effect/Cloud_Poof (16 x 16).png" id="2_7tuot"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdfio"]

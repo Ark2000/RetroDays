@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://dh8hfkiotiuqf"]
 
 [ext_resource type="Texture2D" uid="uid://dwt3sutck1qin" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="1_h06oq"]
 [ext_resource type="Script" path="res://data/signboard/sign.gd" id="2_5d3il"]

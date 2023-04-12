@@ -6,7 +6,7 @@ const level_2 = preload("res://data/level_2.tscn")
 const level_transition = preload("res://data/level_transition.tscn")
 const game_over = preload("res://data/game_over.tscn")
 
-const clound_poof_effect = preload("res://data/cloud_poof_effect.tscn")
+const clound_poof_effect = preload("res://data/cloud_poof_effect/cloud_poof_effect.tscn")
 
 var intent = {}
 

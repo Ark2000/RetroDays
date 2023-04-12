@@ -1,22 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://r1typxlaomfa"]
+[gd_scene load_steps=11 format=3 uid="uid://dsrfwfmshakhj"]
 
-[ext_resource type="Texture2D" uid="uid://de0brjm3balw1" path="res://assets/items/common_pickups/Coin (16 x 16).png" id="1_0dcr6"]
-[ext_resource type="Script" path="res://data/coin.gd" id="1_vonxj"]
+[ext_resource type="Script" path="res://data/coin/coin.gd" id="1_ac5bl"]
+[ext_resource type="Texture2D" uid="uid://de0brjm3balw1" path="res://assets/items/common_pickups/Coin (16 x 16).png" id="2_k8b5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_it5ou"]
-atlas = ExtResource("1_0dcr6")
+atlas = ExtResource("2_k8b5u")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlcsm"]
-atlas = ExtResource("1_0dcr6")
+atlas = ExtResource("2_k8b5u")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cp8wa"]
-atlas = ExtResource("1_0dcr6")
+atlas = ExtResource("2_k8b5u")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_daodf"]
-atlas = ExtResource("1_0dcr6")
+atlas = ExtResource("2_k8b5u")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifmjx"]
@@ -76,8 +76,8 @@ _data = {
 
 [node name="Coin" type="Area2D"]
 collision_layer = 0
-collision_mask = 16
-script = ExtResource("1_vonxj")
+collision_mask = 2
+script = ExtResource("1_ac5bl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)

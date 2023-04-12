@@ -32,7 +32,6 @@ var fall_start:float
 var prev_velocity:Vector2
 
 func _ready() -> void:
-	Console.register_env("c",self)
 	just_landed.connect(
 		func(fall_distance:float):
 			print("Fall Distance: ", fall_distance)

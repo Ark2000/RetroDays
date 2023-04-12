@@ -1,12 +1,12 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://d10io6nkrbaac"]
 
 [ext_resource type="Texture2D" uid="uid://b45ly26fnx2cj" path="res://data/mob_bub/Idle (16 x 16).png" id="1_3hjcw"]
 [ext_resource type="Script" path="res://data/mob_bub/bub.gd" id="1_wt68q"]
 [ext_resource type="Texture2D" uid="uid://dipuot32ydbkr" path="res://data/mob_bub/Hurt (16 x 16).png" id="2_0ke2m"]
 [ext_resource type="Texture2D" uid="uid://cbbqsjdmgayff" path="res://data/mob_bub/Running (16 x 16).png" id="4_bxi82"]
 [ext_resource type="Texture2D" uid="uid://brrdqd3efi57w" path="res://data/mob_bub/Squished (16 x 16).png" id="5_5454y"]
-[ext_resource type="PackedScene" path="res://data/head_hurt_box/head_hurt_box.tscn" id="6_yygfr"]
-[ext_resource type="PackedScene" path="res://data/side_hit_box/side_hit_box.tscn" id="7_krkec"]
+[ext_resource type="PackedScene" path="res://data/mob_hurt_box/head_hurt_box.tscn" id="6_yygfr"]
+[ext_resource type="PackedScene" path="res://data/mob_hit_box/side_hit_box.tscn" id="7_krkec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mco03"]
 size = Vector2(12, 11)

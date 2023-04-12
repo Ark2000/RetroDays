@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://76rsxlb72cjy"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bjg41vr3q400g" path="res://data/player_b.tscn" id="1_8580t"]
+[ext_resource type="PackedScene" path="res://data/player_b.tscn" id="1_8580t"]
 [ext_resource type="Script" path="res://data/level_2.gd" id="1_a5ehq"]
-[ext_resource type="PackedScene" uid="uid://r1typxlaomfa" path="res://data/coin.tscn" id="2_87isa"]
+[ext_resource type="PackedScene" path="res://data/coin/coin.tscn" id="2_87isa"]
 [ext_resource type="PackedScene" uid="uid://dl6he2j734qc6" path="res://data/portal.tscn" id="3_f56us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kj14y"]
