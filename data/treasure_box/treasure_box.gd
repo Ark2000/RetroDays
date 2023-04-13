@@ -7,7 +7,7 @@ const coin_img = preload("res://assets/items/common_pickups/CoinSingle.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(
-		func(body):
+		func(_body):
 			sprite.play("default")
 			get_node("CollisionShape2D").set_deferred("disabled", true)
 			play_animation()

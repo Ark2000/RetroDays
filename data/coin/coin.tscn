@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71tt1"]
-size = Vector2(6, 16)
+size = Vector2(16, 25)
 
 [sub_resource type="Animation" id="Animation_u85uv"]
 resource_name = "collected"
@@ -86,7 +86,7 @@ autoplay = "default"
 frame_progress = 0.351481
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(8, 7.5)
 shape = SubResource("RectangleShape2D_71tt1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

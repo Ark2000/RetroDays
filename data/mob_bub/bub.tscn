@@ -101,6 +101,7 @@ size = Vector2(14, 9)
 
 [node name="Bub" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
+collision_mask = 9
 script = ExtResource("1_wt68q")
 sprite = NodePath("AnimatedSprite2D")
 
@@ -123,5 +124,7 @@ position = Vector2(0, -5)
 [node name="CollisionShape2D" parent="SideHitBox" index="0"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jg3q3")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [editable path="SideHitBox"]

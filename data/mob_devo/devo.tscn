@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://31c6b6hsyxki"]
+
+[ext_resource type="Script" path="res://data/mob_devo/devo.gd" id="1_l075u"]
+[ext_resource type="Texture2D" uid="uid://o8v64hs3c40h" path="res://data/mob_devo/Falling (16 x 16).png" id="2_7r8qu"]
+[ext_resource type="Texture2D" uid="uid://c8nnslx1ti0bt" path="res://data/mob_devo/Hurt (16 x 16).png" id="3_fooh2"]
+[ext_resource type="Texture2D" uid="uid://bw5dn67i11bjd" path="res://data/mob_devo/Standing (16 x 16).png" id="3_orxnd"]
+[ext_resource type="Texture2D" uid="uid://bgx60207w3mhr" path="res://data/mob_devo/Jumping (16 x 16).png" id="4_mhe3f"]
+[ext_resource type="PackedScene" path="res://data/mob_hit_box/side_hit_box.tscn" id="5_0j7qd"]
+[ext_resource type="PackedScene" path="res://data/mob_hurt_box/head_hurt_box.tscn" id="6_y7oo1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mco03"]
+size = Vector2(12, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhus6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7r8qu")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fooh2")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_orxnd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mhe3f")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ksk8"]
+size = Vector2(14, 12)
+
+[node name="Devo" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hitbox")]
+texture_filter = 1
+script = ExtResource("1_l075u")
+sprite = NodePath("AnimatedSprite2D")
+hitbox = NodePath("SideHitBox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_mco03")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_uhus6")
+animation = &"idle"
+
+[node name="SideHitBox" parent="." instance=ExtResource("5_0j7qd")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" parent="SideHitBox" index="0"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_8ksk8")
+
+[node name="HeadHurtBox" parent="." instance=ExtResource("6_y7oo1")]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" parent="HeadHurtBox" index="0"]
+position = Vector2(0, -0.25)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[editable path="SideHitBox"]
+[editable path="HeadHurtBox"]

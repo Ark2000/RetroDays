@@ -2,7 +2,7 @@ extends Area2D
 
 func _ready():
 	body_entered.connect(
-		func(body:Node2D):
+		func(_body:Node2D):
 			$AnimationPlayer.play("collected")
 	)
 	$AnimationPlayer.animation_finished.connect(

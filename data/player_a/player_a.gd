@@ -11,7 +11,7 @@ signal just_attack
 @export_range(10.0, 100.0) var MAX_SPEED := 64.0
 @export_range(1.0, 20.0) var FRICTION = 10.0
 @export_range(0.0, 5.0) var AIR_RESISTANCE = 1.0
-@export_range(0.0, 500.0) var JUMP_FORCE = 200
+@export_range(0.0, 500.0) var JUMP_FORCE = 240
 @export_range(100.0, 1000.0) var GRAVITY = 600.0
 
 @export var sprite:AnimatedSprite2D
@@ -94,7 +94,7 @@ func _physics_process(delta):
 		if jump_pressed:
 			velocity.y = -JUMP_FORCE
 	else:
-		if jump_released and velocity.y < -JUMP_FORCE/2:
+		if jump_released and velocity.y < -JUMP_FORCE/2.0:
 			velocity.y = -JUMP_FORCE * 0.5
 		if x_input == 0.0:
 			velocity.x = lerp(velocity.x, 0.0, AIR_RESISTANCE * delta)
@@ -136,26 +136,26 @@ func get_face_direction():
 	return -1 if sprite.flip_h else 1
 
 func update_animation():
-	var anim = ""
+	var anima = ""
 	if !is_on_floor():
-		anim = "jumping"
+		anima = "jumping"
 		if get_fall_height() > 64 and velocity.y > 0:
-			anim = "falling"
+			anima = "falling"
 	else:
 		if abs(velocity.x) <= 1.0:
-			anim = "idle"
+			anima = "idle"
 		else:
-			anim = "running"
+			anima = "running"
 		if duck_pressed:
-			anim = "ducking"
+			anima = "ducking"
 		if ground_recovery_counter > 0.0:
-			anim = "ground_recovery"
+			anima = "ground_recovery"
 	
 	if play_attack_animation:
-		anim = current_attack_animation
+		anima = current_attack_animation
 	
 	if play_hurt_animation:
-		anim = "hurt"
+		anima = "hurt"
 
-	if sprite.animation != anim:
-		sprite.play(anim)
+	if sprite.animation != anima:
+		sprite.play(anima)

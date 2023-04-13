@@ -30,7 +30,7 @@ func _physics_process(delta):
 			velocity.y = -JUMP_FORCE
 	else:
 		animationPlayer.play("Jump")
-		if Input.is_action_just_released("up") and velocity.y < -JUMP_FORCE/2:
+		if Input.is_action_just_released("up") and velocity.y < -JUMP_FORCE/2.0:
 			velocity.y = -JUMP_FORCE * 0.5
 		if x_input == 0.0:
 			velocity.x = lerp(velocity.x, 0.0, AIR_RESISTANCE * delta)

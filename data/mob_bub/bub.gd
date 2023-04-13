@@ -23,4 +23,10 @@ func die():
 	get_node("CollisionShape2D").queue_free()
 	sprite.play("squished")
 	var t = create_tween()
-	t.tween_callback(queue_free).set_delay(0.5)
+	t.tween_callback(
+		func():
+			var effect = G.clound_poof_effect.instantiate()
+			effect.position = sprite.global_position + Vector2(0, -6)
+			get_tree().root.add_child(effect)
+			queue_free()
+	).set_delay(0.4)
